@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="layouts/unauthorized :: layout(~{::title}, ~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+<section>
+    <h1>Register</h1>
+
+    <form method="post" th:action="@{/registration}" th:object="${registerForm}">
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First name:</label>
+            <input id="firstName" type="text" th:field="*{firstName}" class="form-control" />
+            <p th:each="error : ${#fields.errors('firstName')}" th:text="${error}" class="error"></p>
+        </div>
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Last name:</label>
+            <input type="text" class="form-control" id="lastName" th:field="*{lastName}">
+            <p th:each="error: ${#fields.errors('lastName')}" th:text="${error}" class="error"></p>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" th:field="*{email}">
+            <p th:each="error: ${#fields.errors('email')}" th:text="${error}" th:field="*{email}" class="error"></p>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" th:field="*{password}">
+            <p th:each="error: ${#fields.errors('password')}" th:text="${error}" class="error"></p>
+        </div>
+        <div class="mb-3">
+            <label for="passwordConfirm" class="form-label">Confirm password</label>
+            <input type="password" class="form-control" id="passwordConfirm" th:field="*{passwordConfirm}">
+            <p th:each="error: ${#fields.errors('passwordConfirm')}" th:text="${error}" class="error"></p>
+        </div>
+
+        <div class="d-grid mb-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+        <div class="text-end">
+            <a th:href="@{/login}">Already have account</a>
+        </div>
+    </form>
+</section>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="layouts/unauthorized :: layout(~{::title}, ~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+<section>
+    <div th:if="${errorMessage}" class="alert alert-primary" role="alert">
+        <span th:text="${errorMessage}"></span>
+    </div>
+
+    <h1>Login</h1>
+
+    <form method="post" th:action="@{/login}" th:object="${loginForm}">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input id="email" type="email" class="form-control" th:field="*{email}">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input id="password" type="password" class="form-control" th:field="*{password}">
+        </div>
+
+        <!--        <div class="form-check mb-3">-->
+        <!--            <input class="form-check-input" type="checkbox" value="" id="rememberMe" name="remember-me">-->
+        <!--            <label class="form-check-label" for="rememberMe">-->
+        <!--                Remember me-->
+        <!--            </label>-->
+        <!--        </div>-->
+
+        <div class="d-grid mb-3">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+        <div class="button-group">
+            <a class="btn btn-primary" th:href="@{/registration}">Don't have an account?</a>
+            <a class="btn btn-primary">Lost password</a>
+        </div>
+    </form>
+</section>
+</body>
+</html>

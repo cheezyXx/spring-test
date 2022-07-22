@@ -1,0 +1,8 @@
+{
+  "name": "tomas-spring-boot-example",
+  "buildpacks": [
+    {
+      "url": "heroku/java"
+    }
+  ]
+}

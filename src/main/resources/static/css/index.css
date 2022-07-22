@@ -1,0 +1,25 @@
+.container,
+section {
+    height: 100vh;
+}
+
+form {
+    max-width: 450px;
+    width: 100%
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.button-group > a {
+    flex: 1;
+}
