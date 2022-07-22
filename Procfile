@@ -1,1 +1,1 @@
-web: java -D spring.profiles.active=prod -D server.port=$PORT -jar build/libs/sprintSecurity-0.0.1-SNAPSHOT.jar
+web: java -D spring.profiles.active=prod -D server.port=$PORT -jar target/sprintSecurity-0.0.1-SNAPSHOT.jar
